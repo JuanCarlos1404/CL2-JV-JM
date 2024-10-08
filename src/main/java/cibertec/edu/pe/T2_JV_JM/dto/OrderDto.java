@@ -5,6 +5,7 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 @Builder
 @Data
@@ -14,4 +15,5 @@ public class OrderDto {
     private Integer customerId;
     private Date orderDate;
     private BigDecimal totalAmount;
+    private List<OrderDetailDto> orderDetailDto;
 }

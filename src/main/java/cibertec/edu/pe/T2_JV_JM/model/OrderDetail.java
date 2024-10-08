@@ -1,34 +1,32 @@
 package cibertec.edu.pe.T2_JV_JM.model;
 
+import cibertec.edu.pe.T2_JV_JM.model.pk.ProductOrderId;
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "OrderDetail")
 public class OrderDetail {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer orderDetailId;
+    @EmbeddedId
+    private ProductOrderId orderDetailId;
 
     private Integer quantity;
     private BigDecimal price;
 
     @ManyToOne
+    @MapsId("orderId")
     @JoinColumn(name = "orderId")
     @JsonBackReference
     private Order order;
 
     @ManyToOne
+    @MapsId("bookId")
     @JoinColumn(name = "bookId")
     private Book book;
 }
