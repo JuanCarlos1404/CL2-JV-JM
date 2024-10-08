@@ -29,7 +29,7 @@ public class AuthorService implements IAuthorService {
 
 
     @Override
-    public List<AuthorDto> findByFirstName(String firstName) {
+    public List<Author> findByFirstName(String firstName) {
         return authorRepository.findByFirstName(firstName);
     }
 
@@ -44,7 +44,7 @@ public class AuthorService implements IAuthorService {
     }
 
     @Override
-    public List<AuthorDto> findAllAuthors() {
+    public List<Author> findAllAuthors() {
         return authorRepository.findAll();
     }
 
