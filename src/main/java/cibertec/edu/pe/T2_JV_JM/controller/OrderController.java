@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class OrderController {
     private final IOrderService orderService;
 
-    @PostMapping
+    @PostMapping("/")
     public ResponseEntity<Order> createOrder(@RequestBody OrderDto orderDto) {
         Order newOrder = orderService.createOrder(orderDto);
         return ResponseEntity.status(201).body(newOrder);
